@@ -21,7 +21,7 @@ touch "${FLASHER_ARGS_FILE}"
 echo "running script from: $(realpath .)"
 case "${PROGRAMMER}" in
 	esptool)
-		"${SCRIPT_DIR}/export_flasher_args_esptool.sh ${FLASHER_ARGS_FILE} ${FFLAGS}"
+		"${SCRIPT_DIR}/export_flasher_args_esptool.sh" "${FLASHER_ARGS_FILE}" ${FFLAGS}
 	exit 0
 	;;
 	*)
