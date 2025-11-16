@@ -80,6 +80,7 @@ done
 
 
 # Write to file
+echo "Exporting to:${OUTPUT_FILE}"
 {
 	echo "{"
 	# FlashOptions
