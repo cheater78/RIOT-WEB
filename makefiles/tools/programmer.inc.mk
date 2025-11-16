@@ -15,6 +15,11 @@ ifeq (1,$(USE_PROGRAMMER_WRAPPER_SCRIPT))
   PROGRAMMER_RESET ?= @$(RIOTTOOLS)/programmer/programmer.py \
   --action Resetting --cmd "$(RESET) $(RESET_FLAGS)" \
   --programmer "$(PROGRAMMER)" $(PROGRAMMER_VERBOSE_OPT)
+else ifeq (1,$(RIOT_FLASH_WEB))
+  PROGRAMMER_FLASH = @$(RIOTTOOLS)/export_flasher_args/export_flasher_args.sh \
+    $(RIOT_PROJECT) \
+    $(BOARD)
+    PROGRAMMER_RESET ?= ""
 else
   PROGRAMMER_FLASH ?= $(FLASHER) $(FFLAGS)
   PROGRAMMER_RESET ?= $(RESET) $(RESET_FLAGS)
